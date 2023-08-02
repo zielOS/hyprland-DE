@@ -1,0 +1,86 @@
+#-- Launch terminal -------------------
+super + Return
+  kitty
+
+super + shift + Return
+  pypr toggle term 
+
+#-- Launcher -----------------------
+super + d
+  hyprmenu
+
+super + alt + d
+  launcher
+
+#-- Launch Applications ---------------
+super + shift + w
+  firefox 
+
+super + shift + n
+  kitty -e lvim
+
+super + shift + f
+  thunar
+
+super + shift + b
+  kitty -e bottom
+
+#-- Hyprland --------------------------
+super + q
+  hyprctl dispatch killactive
+
+super + f
+  hyprctl dispatch fullscreen
+
+super + space
+  hyprctl dispatch togglefloating active
+
+
+
+#-- Window Management -----------------
+# Focus 
+super + {Left,Right,Up,Down}
+  hyprctl dispatch movefocus {l,r,u,d}
+
+# Move
+super + shift + {Left,Right,Up,Down}
+  hyprctl dispatch movewindow {l,r,u,d}
+
+# Resize
+super + ctrl + {Left,Right,Up,Down}
+  hyprctl dispatch resizeactive { -45 0, 45 0, 0 -45, 0 45 }
+
+
+#-- Screenshots ------------------------
+Print
+  hyprshot -m window
+
+super + Print 
+  hyprshot -m region
+
+
+#-- Misc ------------------------------
+
+ctrl + atl + e
+  eww open --toggle powermenu
+
+#-- Volume control --------------------
+XF86Audio{RaiseVolume,LowerVolume}
+  volumectl -u {up,down}
+
+XF86AudioMute
+  volumectl toogle-mute
+
+XF86AudioMicMute
+  volumectl -m toggle-mute
+
+
+#-- Workspaces -----------------------
+super + {1-6}
+  hyprsome workspace {1-6}
+
+super + shift + {1-6}
+  hyprsome move {1-6}
+
+super + alt + {1-6}
+  hyprsome movefocus {1-6}

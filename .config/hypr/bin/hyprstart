@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+# Kill already running process
+_ps=(waybar swayidle swhks polkit-gnome-authentication-agent-1)
+for _prs in "${_ps[@]}"; do
+	if [[ `pidof ${_prs}` ]]; then
+		killall -9 ${_prs}
+	fi
+done
+
+# Idle
+hypridle &
+
+# Notifications
+hyprdunst &
+
+# hotkey daemon
+hyprkeys &
+
+# wallpaper 
+hyprwall &
+
+# theme
+hyprtheme &
+
+# eww bar
+hyprbar &
+
+# polkit 
+hyprpolkit &
+
+# gammastep 
+hyprgamma &
+
+wl-paste --watch cliphist store --no-newline &
+
+# Start Apps
+ckb-next &
+QT_QPA_PLATFORM=xcb insync start &

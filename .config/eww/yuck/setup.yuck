@@ -1,0 +1,60 @@
+(defwindow wallpaper
+  :monitor 0
+  :stacking "bg"
+  :geometry (geometry :height "100%" :width "100%" :ancho "center")
+  (wallpaper)
+)
+
+(defwindow bar
+  :monitor 0
+  :exclusive false
+  :stacking "fg"
+  :geometry (geometry :height "100%" :anchor "center left")
+  (bar)
+)
+
+(defwindow dash
+  :monitor 0
+  :geometry (geometry :width "10%" :anchor "bottom center")
+  (dash)
+)
+
+(defwindow launcher
+  :monitor 0
+  :focusable true
+  :stacking "fg"
+  :geometry (geometry :height "60%" :width "30%" :anchor "center")
+  (launcher)
+)
+
+(defwindow volume
+  :monitor 0
+  :stacking "overlay"
+  :geometry (geometry :width "10%" :anchor "top center")
+  (volume-popup)
+)
+
+(defwindow menu
+  :monitor 0 
+  :geometry (geometry :x "4%" :width "25%" :anchor "center left")
+  (menu)
+)
+
+(defwindow media
+  :monitor 0 
+  :geometry (geometry :x "4%" :width "20%" :anchor "center left")
+  (media)
+)
+
+(defwindow notifications
+  :monitor 0
+  :geometry (geometry :x "4%" :width "25%" :anchor "center left")
+  (notifications)
+)
+
+(defwindow powermenu
+  :monitor 0
+  :stacking "fg"
+  :geometry (geometry :anchor "right center")
+  (powermenu)
+)

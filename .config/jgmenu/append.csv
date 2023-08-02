@@ -1,0 +1,8 @@
+^tag(bspwm)
+Reload,bspc wm -r,/home/ahsan/.config/jgmenu/icons/repeat.svg
+
+^tag(exit)
+Suspend,systemctl suspend,/home/ahsan/.config/jgmenu/icons/snooze.svg
+Reboot,systemctl reboot,/home/ahsan/.config/jgmenu/icons/repeat.svg
+Poweroff,systemctl poweroff,/home/ahsan/.config/jgmenu/icons/power-off.svg
+Log Out,bspc quit,/home/ahsan/.config/jgmenu/icons/exit.svg

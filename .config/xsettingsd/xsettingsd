@@ -1,0 +1,10 @@
+Net/ThemeName "Catppuccin-Mocha-Standard-Lavender-dark"
+Net/IconThemeName "Papirus-Dark"
+Gtk/CursorThemeName "Catppuccin-Mocha-Lavender-Cursors"
+Net/EnableEventSounds "0"
+Net/EnableInputFeedbackSounds "0"
+Xft/DPI "146"
+Xft/Hinting 1
+Xft/HintStyle "hintfull"
+Xft/Antialias 1
+Xft/RGBA "rgb"

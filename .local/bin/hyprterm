@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+CONFIG="$HOME/.config/kitty/kitty.conf"
+
+if [ "$1" == "--float" ]; then
+	kitty --class 'kitty-float,kitty-float' --config "$CONFIG"
+elif [ "$1" == "--full" ]; then
+  kitty --start-as fullscreen	
+else
+	kitty --config "$CONFIG"
+fi 

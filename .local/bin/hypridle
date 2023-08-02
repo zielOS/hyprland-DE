@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+swayidle -w \
+    timeout 600 'gtklock' \
+    timeout 800 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'gtklock'

@@ -1,0 +1,75 @@
+[2023-07-17 11:41:48.886][verbose] Chromium sandbox is enabled
+[2023-07-17 11:41:48.887][info] Running version 2023.4
+[2023-07-17 11:41:48.941][info] Detected locale: en-GB
+[2023-07-17 11:41:48.964][info] Connected to the daemon
+[2023-07-17 11:41:49.002][info] Skip autoconnect because account token is not set
+[2023-07-17 11:41:49.379][error] Failed to check autostart file: ENOENT: no such file or directory, access '/home/ahsan/.config/autostart/mullvad-vpn.desktop'
+[2023-07-17 11:43:25.572][error] Failed to check autostart file: ENOENT: no such file or directory, access '/home/ahsan/.config/autostart/mullvad-vpn.desktop'
+[2023-07-17 12:41:48.972][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 13:11:10.753][info] Suspend event received, disconnecting from daemon
+[2023-07-17 13:11:10.755][verbose] GRPC Channel connectivity state changed to 4
+[2023-07-17 13:11:10.758][info] Disconnected from the daemon
+[2023-07-17 13:11:10.761][info] Suspend event received, disconnecting from daemon
+[2023-07-17 13:11:10.761][info] Disconnected from the daemon
+[2023-07-17 13:24:22.355][info] Resume event received, connecting to daemon
+[2023-07-17 13:24:22.357][info] Resume event received, connecting to daemon
+[2023-07-17 13:24:22.357][info] Connected to the daemon
+[2023-07-17 13:24:22.358][info] Connected to the daemon
+[2023-07-17 13:24:22.664][warning] Failed to fetch account data. Retrying in 8000 ms
+[2023-07-17 13:24:22.664][warning] Failed to update device info: 14 UNAVAILABLE: Cannot reach the API
+[2023-07-17 14:24:23.002][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 14:24:23.003][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 15:24:23.006][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 15:24:23.007][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 16:24:23.016][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 16:24:23.016][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 17:24:23.022][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 17:24:23.022][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 18:24:23.024][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 18:24:23.024][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 19:24:23.033][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 19:24:23.033][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 20:24:23.038][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 20:24:23.038][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 21:24:23.041][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 21:24:23.041][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 22:24:23.044][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 22:24:23.044][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 23:24:23.049][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-17 23:24:23.049][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 00:24:23.050][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 00:24:23.051][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 01:24:23.058][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 01:24:23.058][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 02:24:23.061][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 02:24:23.062][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 03:24:23.063][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 03:24:23.063][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 04:24:23.070][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 04:24:23.070][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 05:24:23.074][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 05:24:23.075][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 06:24:23.075][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 06:24:23.075][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 07:24:23.084][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 07:24:23.084][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 08:24:23.088][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 08:24:23.088][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 09:24:23.089][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 09:24:23.089][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 10:24:23.095][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 10:24:23.095][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 11:24:23.098][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 11:24:23.099][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 12:24:23.109][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 12:24:23.109][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 13:24:23.111][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 13:24:23.111][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 14:24:23.113][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 14:24:23.113][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 15:24:23.124][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 15:24:23.124][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 16:24:23.129][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 16:24:23.129][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 17:24:23.131][verbose] GRPC Channel connectivity state changed to 2
+[2023-07-18 17:24:23.131][verbose] GRPC Channel connectivity state changed to 2

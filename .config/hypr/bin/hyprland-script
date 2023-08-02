@@ -1,0 +1,33 @@
+#!/bin/bash
+
+echo "Installing Dot files"
+cd && sudo rm -R ~/.config/
+cd && mkdir ~/.config
+
+echo "Installing Dot files"
+ln -s $HOME/.dots/ckb-next $HOME/.config/
+ln -s $HOME/.dots/dunst $HOME/.config/
+ln -s $HOME/.dots/eww $HOME/.config/
+ln -s $HOME/.dots/gammastep $HOME/.config/
+ln -s $HOME/.dots/gtklock $HOME/.config/
+ln -s $HOME/.dots/hypr $HOME/.config/
+ln -s $HOME/.dots/kitty $HOME/.config/
+ln -s $HOME/.dots/lazygit $HOME/.config/
+ln -s $HOME/.dots/lsd $HOME/.config/
+ln -s $HOME/.dots/mpv $HOME/.config/
+ln -s $HOME/.dots/ranger $HOME/.config/
+ln -s $HOME/.dots/rofi $HOME/.config/
+ln -s $HOME/.dots/swhkd $HOME/.config/
+ln -s $HOME/.dots/sxiv $HOME/.config/
+ln -s $HOME/.dots/vifm $HOME/.config/
+ln -s $HOME/.dots/wallpapers $HOME/.config/
+ln -s $HOME/.dots/wofi $HOME/.config/
+ln -s $HOME/.dots/zathura $HOME/.config/
+ln -s $HOME/.dots/zsh $HOME/.config/
+ln -s $HOME/.dots/.zshrc $HOME/
+ln -s $HOME/.dots/electron-flags.conf $HOME/.config/
+ln -s $HOME/.dots/electron13-flags.conf $HOME/.config/
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+

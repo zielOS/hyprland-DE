@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+THEME='Mocha-Mauve'
+ICONS='Papirus-Dark'
+FONT='JetBrainsMono Nerd Font 13'
+CURSOR='Qogir-Dark'
+
+SCHEMA='gsettings set org.gnome.desktop.interface'
+
+apply_themes () {
+	${SCHEMA} gtk-theme "$THEME"
+	${SCHEMA} icon-theme "$ICONS"
+	${SCHEMA} cursor-theme "$CURSOR"
+	${SCHEMA} font-name "$FONT"
+}
+
+apply_themes

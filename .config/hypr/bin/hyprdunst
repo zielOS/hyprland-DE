@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+CONFIG="$HOME/.config/hypr/dunst/dunstrc"
+
+# Launch dunst daemon
+if [[ `pidof dunst` ]]; then
+	pkill dunst
+fi
+
+dunst -config "$CONFIG" &
+
+dunstify -u critical "Critical message" "critical message"
+dunstify -u normal "Normal message" "normal message"
+dunstify -u low "Low message" "low message"

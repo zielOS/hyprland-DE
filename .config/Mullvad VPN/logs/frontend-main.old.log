@@ -1,0 +1,41 @@
+[2023-07-17 01:57:08.238][verbose] Chromium sandbox is enabled
+[2023-07-17 01:57:08.239][info] Running version 2023.4
+[2023-07-17 01:57:08.239][verbose] Creating gui-settings file and writing the default settings to it
+[2023-07-17 01:57:08.292][info] Detected locale: en-GB
+[2023-07-17 01:57:08.559][error] Failed to check autostart file: ENOENT: no such file or directory, access '/home/ahsan/.config/autostart/mullvad-vpn.desktop'
+[2023-07-17 01:57:18.293][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:57:18.293][error] Unable to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:57:31.295][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:57:31.295][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:57:44.297][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:57:44.298][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:57:57.300][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:57:57.300][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:58:10.301][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:58:10.301][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:58:23.304][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:58:23.304][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:58:36.306][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:58:36.306][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:58:49.308][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:58:49.309][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:59:02.310][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:59:02.311][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:59:15.313][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:59:15.313][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:59:28.317][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:59:28.317][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:59:41.320][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:59:41.321][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 01:59:54.322][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 01:59:54.322][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 02:00:07.326][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 02:00:07.326][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 02:00:20.327][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 02:00:20.327][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 02:00:33.328][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 02:00:33.329][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 02:00:46.331][error] Failed to connect to daemon: Failed to connect before the deadline
+[2023-07-17 02:00:46.331][error] Failed to reconnect - Error: Failed to connect before the deadline
+[2023-07-17 02:00:52.840][info] Connected to the daemon
+[2023-07-17 02:00:52.882][info] Skip autoconnect because account token is not set
