@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-swaybg --output '*' --mode fill --image ~/.config/hypr/wallpapers/tokyonight.jpg &

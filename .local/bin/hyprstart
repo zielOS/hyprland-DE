@@ -8,11 +8,11 @@ for _prs in "${_ps[@]}"; do
 	fi
 done
 
-# statusbar
-hyprbar &
-
 # Idle
 hypridle &
+
+# Notifications
+hyprdunst &
 
 # hotkey daemon
 hyprkeys &
@@ -23,11 +23,16 @@ hyprwall &
 # theme
 hyprtheme &
 
+# eww bar
+hyprbar &
+
 # polkit 
 hyprpolkit &
 
 # gammastep 
 hyprgamma &
+
+wl-paste --watch cliphist store --no-newline &
 
 # Start Apps
 ckb-next &

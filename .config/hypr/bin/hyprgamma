@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-
-systemctl --user import-environment; systemctl --user start graphical-session.target &
-gammastep

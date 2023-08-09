@@ -1,9 +1,9 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-THEME='Mocha-Mauve'
+THEME='Catppuccin-Mocha-Standard-Lavender-Dark'
 ICONS='Papirus-Dark'
 FONT='JetBrainsMono Nerd Font 13'
-CURSOR='Qogir-Dark'
+CURSOR='Catppuccin-Mocha-Lavender-Cursors'
 
 SCHEMA='gsettings set org.gnome.desktop.interface'
 
