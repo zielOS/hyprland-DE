@@ -4,7 +4,7 @@ cfdisk /dev/nvme0n1 && mkfs.vfat -F 32 /dev/nvme0n1p1 && cryptsetup -c aes-xts-p
 
 * Download gentoo
 
-cd /mnt/gentoo && wget https://distfiles.gentoo.org/releases/amd64/autobuilds/20230730T170144Z/stage3-amd64-hardened-openrc-20230730T170144Z.tar.xz && tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
+cd /mnt/gentoo && wget https://distfiles.gentoo.org/releases/amd64/autobuilds/20230806T163139Z/stage3-amd64-hardened-openrc-20230806T163139Z.tar.xz && tar xpvf stage3-*.tar.xz --xattrs-include='*.*' --numeric-owner
 
 
 *** make.conf
@@ -24,16 +24,17 @@ FCFLAGS="${COMMON_FLAGS}"
 FFLAGS="${COMMON_FLAGS}"
 RUSTFLAGS="-C opt-level=3 -C target-cpu=native"
 MAKEOPTS="-j22"
+EMERGE_DEFAULT_OPTS="--jobs 10 --verbose --keep-going"
 NOCOMMON_OVERRIDE_LIBTOOL="yes"
-#ACCEPT_KEYWORDS="~amd64"
+ACCEPT_KEYWORDS="~amd64"
 ACCEPT_LICENSE="*"
 VIDEO_CARDS="nvidia"
-USE="elogind -systemd -gnome -berkdb -kde -ccache tpm zstd policykit \
-    -clamav -coreaudio -ios -ipod -ieee1394 -motif gtk pulseaudio qt5 qt6 \
-    -emboss -3dfx -altivec -smartcard -ibm wayland -nls -nas pam clang  \
-    -neon -nntp -cups -quicktime nvidia sound-server -vim apparmor \
-    pie gui upower hardened udev alsa audit dbus lto pgo -handbook \
-    -accessibility -bluetooth X"
+USE="-elogind systemd -gnome -berkdb -kde -ccache -tpm zstd policykit \
+     -clamav -coreaudio -ios -ipod -ieee1394 -motif gtk pulseaudio  \
+     -emboss -3dfx -altivec -smartcard -ibm wayland -nls -nas pam clang  \
+     -neon -nntp -cups -quicktime nvidia sound-server -vim apparmor \
+     pie gui upower hardened udev alsa audit dbus lto pgo -handbook \
+     -accessibility -bluetooth X"
 #RUBY_TARGETS="ruby24 ruby25"
 # NOTE: This stage was built with the bindist Use flag enabled
 PORTDIR="/var/db/repos/gentoo"
@@ -207,11 +208,10 @@ chroot /mnt/gentoo /bin/bash
 source /etc/profile
 export PS1="(chroot) ${PS1}"
 
-emerge-webrsync && emerge --sync && emerge -q app-eselect/eselect-repository dev-vcs/git --jobs=10 && eselect repository remove gentoo && eselect repository add gentoo git https://github.com/gentoo-mirror/gentoo.git  && emaint sync -r gentoo && eselect repository enable guru lto-overlay mv src_prepare-overlay mva && emerge --sync && emerge -q sys-config/ltoize app-portage/lto-rebuild  --jobs=10 && lto-rebuild -r
+emerge-webrsync && emerge --sync && emerge  app-eselect/eselect-repository dev-vcs/git && eselect repository remove gentoo && eselect repository add gentoo git https://github.com/gentoo-mirror/gentoo.git  && emaint sync -r gentoo && eselect repository enable guru lto-overlay mv src_prepare-overlay && emerge --sync && emerge sys-config/ltoize app-portage/lto-rebuild && lto-rebuild -r
 
 * gcc upgrade
-emerge -aq sys-devel/gcc && eselect gcc list && eselect gcc set 2 && lto-rebuild -r && emerge --ask --oneshot --usepkg=n sys-devel/libtool && emerge -ev --usepkg=n @world --keep-going --exclude gcc --jobs=10
-
+emerge -aq sys-devel/gcc && eselect gcc list && eselect gcc set 2 && lto-rebuild -r && emerge --ask --oneshot --usepkg=n sys-devel/libtool && emerge -ev --usepkg=n @world --exclude gcc 
 
 * gcc downgrade
 revdep-rebuild --library 'libstdc++.so.6' -- --exclude gcc && emerge --ask --oneshot --usepkg=n --verbose sys-devel/libtool
@@ -236,7 +236,7 @@ genkernel --luks --menuconfig --install all
 
 ** miscellenous apps
  
-emerge -av --jobs=10 app-arch/unzip app-arch/zip app-arch/unrar sys-fs/btrfs-progs sys-fs/dosfstools net-misc/wget net-misc/curl app-misc/ckb app-admin/sudo sys-apps/mlocate app-text/zathura app-text/zathura-meta app-text/xournalpp app-admin/stow app-misc/ranger app-misc/vifm  app-text/zotero-bin net-p2p/transmission sci-chemistry/pymol media-gfx/imv gui-apps/grim gui-apps/slurp media-video/smplayer gui-apps/wf-recorder dev-python/pynvim app-editors/neovim sys-apps/ripgrep dev-util/tree-sitter-cli sys-apps/fd dev-util/fnm dev-vcs/lazygit app-misc/tmux dev-python/pipx app-containers/podman app-containers/distrobox gui-apps/wl-clipboard sci-misc/jupyterlab-desktop-bin app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions app-shells/zoxide app-shells/fzf x11-misc/dunst x11-themes/papirus-icon-theme app-forensics/aide sys-apps/rng-tools sys-apps/haveged app-forensics/lynis sys-process/audit app-admin/sysstat sys-process/acct sys-boot/grub app-portage/smart-live-rebuild app-portage/gentoolkit net-im/discord sys-power/power-profiles-daemon  sys-apps/apparmor sys-apps/apparmor-utils sys-libs/libapparmor sec-policy/apparmor-profiles net-im/zoom x11-base/xwayland x11-libs/libdrm media-libs/libglvnd x11-libs/libxcb media-libs/mesa gui-libs/egl-wayland x11-drivers/nvidia-drivers xfce-base/thunar xfce-base/thunar-volman xfce-extra/thunar-vcs-plugin xfce-extra/thunar-shares-plugin xfce-extra/thunar-archive-plugin xfce-extra/thunar-media-tags-plugin xfce-base/tumbler media-gfx/plantuml app-text/ltex-ls dev-python/pipx dev-python/yapf dev-python/black dev-python/isort app-emacs/org-mode app-containers/docker app-containers/podman app-containers/distrobox dev-python/matplotlib dev-python/scipy sci-libs/scikit-learn sci-biology/biopython dev-python/pandas app-arch/atool media-video/ffmpegthumbnailer x11-libs/xcb-util-errors app-text/highlight media-gfx/imagemagick www-client/lynx media-gfx/ueberzug dev-python/build dev-python/installer dev-python/setuptools dev-python/wheel dev-python/pytest sys-apps/flatpak gui-apps/tuigreet gui-libs/greetd sys-apps/exa sys-apps/bat gui-apps/foot gui-apps/foot-terminfo gui-apps/wofi gui-apps/eww gui-apps/waybar app-antivirus/lkrg --keep-going
+emerge  app-arch/unzip app-arch/zip app-arch/unrar sys-fs/btrfs-progs sys-fs/dosfstools net-misc/wget net-misc/curl app-misc/ckb app-admin/sudo sys-apps/mlocate app-text/zathura app-text/zathura-meta app-text/xournalpp app-admin/stow app-misc/ranger app-misc/vifm  app-text/zotero-bin net-p2p/transmission sci-chemistry/pymol media-gfx/imv gui-apps/grim gui-apps/slurp media-video/mpv gui-apps/wf-recorder dev-python/pynvim app-editors/neovim sys-apps/ripgrep dev-util/tree-sitter-cli sys-apps/fd dev-util/fnm dev-vcs/lazygit app-misc/tmux dev-python/pipx app-containers/podman app-containers/distrobox gui-apps/wl-clipboard sci-misc/jupyterlab-desktop-bin app-shells/zsh app-shells/zsh-completions app-shells/gentoo-zsh-completions app-shells/zoxide app-shells/fzf x11-misc/dunst x11-themes/papirus-icon-theme app-forensics/aide sys-apps/rng-tools sys-apps/haveged app-forensics/lynis sys-process/audit app-admin/sysstat sys-process/acct sys-boot/grub app-portage/smart-live-rebuild app-portage/gentoolkit net-im/discord sys-power/power-profiles-daemon  sys-apps/apparmor sys-apps/apparmor-utils sys-libs/libapparmor sec-policy/apparmor-profiles net-im/zoom x11-base/xwayland x11-libs/libdrm media-libs/libglvnd x11-libs/libxcb media-libs/mesa gui-libs/egl-wayland x11-drivers/nvidia-drivers xfce-base/thunar xfce-base/thunar-volman xfce-extra/thunar-vcs-plugin xfce-extra/thunar-shares-plugin xfce-extra/thunar-archive-plugin xfce-extra/thunar-media-tags-plugin xfce-base/tumbler media-gfx/plantuml app-text/ltex-ls dev-python/pipx dev-python/yapf dev-python/black dev-python/isort app-emacs/org-mode app-containers/docker app-containers/podman app-containers/distrobox dev-python/matplotlib dev-python/scipy sci-libs/scikit-learn sci-biology/biopython dev-python/pandas app-arch/atool media-video/ffmpegthumbnailer x11-libs/xcb-util-errors app-text/highlight media-gfx/imagemagick www-client/lynx dev-python/build dev-python/installer dev-python/setuptools dev-python/wheel dev-python/pytest sys-apps/flatpak gui-apps/tuigreet gui-libs/greetd sys-apps/exa sys-apps/bat x11-terms/kitty x11-terms/kitty-terminfo x11-terms/kitty-shell-integration gui-apps/wofi gui-apps/eww gui-apps/waybar app-antivirus/lkrg app-misc/jq
    
 
 
@@ -251,13 +251,13 @@ gui-wm/hyprland
 
 
 
-passwd && useradd -m -G users,wheel,audio,video,cron -s /bin/bash ahsan && passwd ahsan && EDITOR=nvim visudo
+passwd && useradd -m -G users,wheel,audio,video -s /bin/bash ahsan && passwd ahsan && EDITOR=nvim visudo
 
 grub-install --target=x86_64-efi --efi-directory=/boot && grub-install --target=x86_64-efi --efi-directory=/boot --removable && grub-mkconfig -o /boot/grub/grub.cfg
 
 nvim /etc/default/grub
 :w
-GRUB_CMDLINE_LINUX="quiet crypt_root=UUID=b124cc7d-aa2c-49b3-8bda-f523f92d4e64 root_trim=yes"
+GRUB_CMDLINE_LINUX="quiet crypt_root=UUID=b124cc7d-aa2c-49b3-8bda-f523f92d4e64 root_trim=yes init=/lib/systemd/systemd"
 GRUB_CMDLINE_LINUX_DEFAULT="apparmor=1 security=apparmor nvidia-drm.modeset=1" 
 
 
