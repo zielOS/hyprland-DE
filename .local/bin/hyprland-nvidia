@@ -18,13 +18,13 @@ export TDESKTOP_DISABLE_GTK_INTEGRATION=1
 export CLUTTER_BACKEND=wayland
 export BEMENU_BACKEND=wayland
 export GDK_BACKEND=wayland
-export GDK_SCALE=1.8
-export GDK_DPI_SCALE=1.7
+export GDK_SCALE=1.7
+export GDK_DPI_SCALE=1.5
 
 ## Qt environment
 export QT_QPA_PLATFORM="wayland;xcb"
 export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-export QT_SCALE_FACTOR=1.7
+export QT_SCALE_FACTOR=1.4
 export QT_FONT_DPI=120 clementine
 export QT_QPA_PLATFORMTHEME=qt5ct
 
@@ -44,19 +44,18 @@ export XDG_CACHE_HOME=$HOME/.cache
 export XDG_DATA_HOME=$HOME/.local/share
 export PATH=$HOME/.config/emacs/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
-export PATH=/root/.local/bin:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.npm-global/bin:$PATH
 export PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
 export MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:$MANPATH
 export INFOPATH=/usr/local/texlive/2023/texmf-dist/doc/info:$INFOPATH
-
-## Kitty environment
-export KITTY_ENABLE_WAYLAND=1
 
 ## Mozilla environment
 export MOZ_ENABLE_WAYLAND=1
 
 ## Java environment
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true'
 
 ## Start Hyprland
 Hyprland
