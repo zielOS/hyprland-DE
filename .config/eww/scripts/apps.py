@@ -12,7 +12,19 @@ gi.require_version("Gtk", "3.0")
 from gi.repository import Gtk
 from configparser import ConfigParser
 
-cache_file = os.path.expandvars("$XDG_CACHE_HOME/apps.json")
+XDG_CACHE_HOME = os.path.expandvars("$XDG_CACHE_HOME")
+CACHE_FILE = os.path.join(XDG_CACHE_HOME, "apps.json")
+DESKTOP_DIR = "/usr/share/applications"
+PREFERRED_APPS = [
+    "spotify",
+    "discord",
+    "foot",
+    "kotatogram desktop",
+    "code - oss",
+    "thunar file manager",
+    "brave web browser (beta)",
+    "transmission"
+]
 
 def get_gtk_icon(icon_name):
     theme = Gtk.IconTheme.get_default()
@@ -21,8 +33,8 @@ def get_gtk_icon(icon_name):
     if icon_info is not None:
         return icon_info.get_filename()
 
-def get_desktop_entries(query=None):
-    desktop_files = glob.glob(os.path.join("/usr/share/applications", "*.desktop"))
+def get_desktop_entries():
+    desktop_files = glob.glob(os.path.join(DESKTOP_DIR, "*.desktop"))
     entries = []
 
     for file_path in desktop_files:
@@ -33,47 +45,46 @@ def get_desktop_entries(query=None):
             continue  # Skip entries with NoDisplay=true
 
         app_name = parser.get("Desktop Entry", "Name")
-        icon_path = get_gtk_icon(parser.get("Desktop Entry", "Icon", fallback=""))
-        comment = parser.get("Desktop Entry", "Comment", fallback="")
+        icon_path = get_gtk_icon(parser.get("Desktop Entry", "Icon", fallback=None))
+        comment = parser.get("Desktop Entry", "Comment", fallback=None)
 
         entry = {
-                "name": app_name,
-                "icon": icon_path,
-                "comment": comment,
-                "desktop": os.path.basename(file_path),
-            }
+            "name": app_name,
+            "icon": icon_path,
+            "comment": comment,
+            "desktop": os.path.basename(file_path),
+        }
         entries.append(entry)
     return entries
 
-def update_cache(entries):
-    with open(cache_file, "w") as file:
-        file.write(json.dumps(entries, indent=2))
-        
-def get_cached_entries():
-    if os.path.exists(cache_file):
-        with open(cache_file, "r") as file:
-            content = file.read().strip()
-            if content:
-                try:
-                    return json.loads(content)
-                except json.JSONDecodeError:
-                    pass
+def update_cache(all_apps, preferred_apps):
+    data = {"apps": all_apps, "preferred": preferred_apps}
+    with open(CACHE_FILE, "w") as file:
+        json.dump(data, file, indent=2)
 
-    entries = get_desktop_entries()
-    update_cache(entries)
-    return entries
+def get_cached_entries():
+    if os.path.exists(CACHE_FILE):
+        with open(CACHE_FILE, "r") as file:
+            try:
+                return json.load(file)
+            except json.JSONDecodeError:
+                pass
+
+    all_apps = get_desktop_entries()
+    preferred_apps = [entry for entry in all_apps if entry["name"].lower() in PREFERRED_APPS]
+    update_cache(all_apps, preferred_apps)
+    return {"apps": all_apps, "preferred": preferred_apps}
 
 def filter_entries(entries, query):
     filtered_data = [
-        entry for entry in entries
+        entry for entry in entries["apps"]
         if query.lower() in entry["name"].lower()
         or (entry["comment"] and query.lower() in entry["comment"].lower())
     ]
     return filtered_data
 
 def update_eww(entries):
-    update = ["eww", "update", "apps={}".format(json.dumps(entries))]
-    subprocess.run(update)
+    subprocess.run(["eww", "update", "apps={}".format(json.dumps(entries))])
 
 if __name__ == "__main__":
     if len(sys.argv) > 2 and sys.argv[1] == "--query":
@@ -85,6 +96,6 @@ if __name__ == "__main__":
 
     if query is not None:
         filtered = filter_entries(entries, query)
-        update_eww(filtered)
+        update_eww({"apps": filtered, "preferred": entries["preferred"]})
     else:
         update_eww(entries)

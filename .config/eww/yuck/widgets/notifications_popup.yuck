@@ -1,49 +1,8 @@
-(defwidget header []
-  (box 
-    :class "header"
-    :space-evenly false
-    (overlay
-      :hexpand true
-      (box
-        :class "dnd"
-        :space-evenly false
-        :halign "start"
-        (label
-          :style "color: #ceb188"
-          :text ""
-        )
-        (revealer 
-          :reveal {notifications.count != 0}
-          :transition "slideright"
-          (label
-            :class "dnd count"
-            :text {notifications.count}
-          )
-        )
-      )
-      (label :class "label" :text "Notifications")
-      (revealer 
-        :reveal {notifications.count != 0}
-        :transition "slideleft"
-        :halign "end"
-        :hexpand true
-        (eventbox
-          :cursor "pointer"
-          (button 
-            :class "clear"
-            :onclick "scripts/notifications.py --clear" 
-            ""
-          )
-        )
-      )
-    )
-  )
-)
-
-(defwidget notif [notification]
+(defwidget notification_popup [notification]
   (box 
     :space-evenly false 
     :orientation "v"
+    :width 400
     (box 
       :class "osd"
       :space-evenly false
@@ -64,8 +23,6 @@
           }
         )
         (label :class "app" :text {notification.app})
-        (label :class "circle" :text "")
-        (label :class "time" :text {notification.time})
       )
       (box
         :halign "end"
@@ -96,7 +53,7 @@
         :visible {notification.app != "Screenshot"}
         :orientation "v"
         :space-evenly false
-        (label
+        (label 
           :visible {notification.summary != "null"}
           :class "summary"
           :limit-width 30
@@ -108,7 +65,7 @@
         (label
           :visible {notification.body != "null"}
           :class "body"
-          :limit-width 120
+          :limit-width 60
           :wrap true
           :xalign 0
           :text {notification.body}

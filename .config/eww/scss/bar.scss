@@ -20,36 +20,37 @@ window > .bar {
   }
 
   .workspaces {
-    background-color: $bg-alt;
-    padding: 1rem 0;
+    background: $bg-alt;
+    padding: .5rem 0;
     border-radius: 1rem;
 
-    .icon {
-      &.current {min-height: 1.5rem; border-radius: 1rem; background: $green;}
-    }
+    .workspace {
+      border-radius: 1rem;
+      min-width: .5rem;
 
-    button {
       &.empty {
-        color: $black;
+        background: lighten($color: $black, $amount: 3%);
+        min-height: .7rem;
+        min-width: .7rem;
       }
 
       &.occupied {
-        color: lighten($color: $black, $amount: 10%);
+        background: $blue-alt;
+        min-height: 1rem;
       }
 
-      &.current {
-        color: $green;
+      &.active {
+        background: $blue-alt;
+        min-height: 2rem;
       }
 
       &:hover {
         &.empty {
-          color: lighten($color: $black, $amount: 5%);
+          background: lighten($color: $black, $amount: 10%);
         }
-        &.occupied {
-          color: lighten($color: $black, $amount: 20%);
-        }
-        &.current {
-          color: darken($color: $green, $amount: 10%);
+        &.occupied,
+        &.active {
+          background: lighten($color: $blue-alt, $amount: 10%);
         }
       }
     }
@@ -97,8 +98,9 @@ window > .bar {
     .bell {
       padding-top: 0.2rem;
 
-      &.icon {
+      .icon {
         color: $fg-alt;
+        &.empty {color: $fg-alt2;}
       }
 
       &.indicator {
@@ -122,10 +124,13 @@ window > .bar {
     }
 
     .network {
-      //
+      &.down {color: $red;}
+      &.up {color: $blue;}
     }
 
     .volume {
+      color: $green;
+      &.muted {color: $red;}
       .volume-bar scale trough {
         all: unset;
         background-color: $black;

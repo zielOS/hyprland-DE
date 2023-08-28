@@ -1,7 +1,7 @@
 #!/bin/bash
 
 toggle_menu() {
-  if [[ $(eww windows | grep '*notifications') ]]; then
+  if [[ $(eww windows | grep -w '*notifications') ]]; then
     eww close notifications
     eww open menu
   else
@@ -42,10 +42,8 @@ main() {
 notifications_state() {
   if [[ $(eww get notifications) == "{}" ]]; then
     python $XDG_CONFIG_HOME/eww/scripts/notifications.py --open
-    eww open --toggle notifications
-  else
-    eww open --toggle notifications
   fi
+  eww open --toggle notifications
 }
 
 toggle_notifications() {

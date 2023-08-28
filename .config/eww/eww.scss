@@ -14,6 +14,7 @@ $red: #dd6777;
 $green: #9ec49f;
 $yellow: #ceb188;
 $blue: #a39ec4;
+$blue-alt: #6791C9;
 $magenta: #c49ec4;
 $cyan: #9ec3c4;
 $white: $fg;
@@ -34,6 +35,7 @@ tooltip {
 @import "scss/volume.scss";
 @import "scss/player.scss";
 @import "scss/powermenu.scss";
-@import "scss/dash.scss";
 @import "scss/background.scss";
 @import "scss/launcher.scss";
+@import "scss/dock.scss";
+@import "scss/notifications_popup.scss";

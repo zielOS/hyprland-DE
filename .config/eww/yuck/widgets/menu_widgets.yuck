@@ -4,10 +4,7 @@
     (calendar 
       :day {date.day}
       :month {date.month}
-      :year {date.year}
-    )
-  )
-)
+      :year {date.year})))
 
 (defwidget mclock []
 	(box
@@ -21,37 +18,21 @@
       :halign "center"
       (label 
         :class "time" 
-        :text {formattime(EWW_TIME, "%H", "America/Sao_Paulo")}
-      )
+        :text {formattime(EWW_TIME, "%H", "America/Sao_Paulo")})
       (box 
         :class "timebox" 
         :valign "center" 
         :orientation "v" 
         :spacing 10
-        (box 
-          :class "timebox magenta" 
-          ""
-        )
-        (box 
-          :class "timebox green" 
-          ""
-        )
-        (box 
-          :class "timebox yellow" 
-          ""
-        )
-		  )
+        (box  :class "timebox magenta" "")
+        (box :class "timebox green" "")
+        (box :class "timebox yellow" ""))
       (label 
         :class "time" 
-        :text {formattime(EWW_TIME, "%M", "America/Sao_Paulo")}
-      )
-    )
+        :text {formattime(EWW_TIME, "%M", "America/Sao_Paulo")}))
     (label 
       :class "today" 
-      :text {formattime(EWW_TIME, "%A, %B %d", "America/Sao_Paulo")}
-    )
-	)
-)
+      :text {formattime(EWW_TIME, "%A, %B %d", "America/Sao_Paulo")})))
 
 (defwidget profile []
 	(box 

@@ -63,7 +63,7 @@
             :class "inferior"
             :spacing 6
             (label
-              :class "app ${player.name == "spotify" ? "spotify" : player.name =~ "brave" ? "brave" : "firefox"}" 
+              :class "app ${player.name}" 
               :text {player.name == "spotify" ? "" : player.name =~ "brave" ? "" : ""}
             )
             (box 
@@ -74,16 +74,16 @@
               (label 
                 :class "time"
                 :text {
-                  mpris_positions[player.name].position == "null" ? formattime(0, "%M:%S") : 
-                  formattime(mpris_positions[player.name].position, "%M:%S")
+                  mpris_positions[player.name].position == "null" ? "" : 
+                  mpris_positions[player.name].positionStr
                 }
               )
               (label :text "/" :class "time")
               (label 
                 :class "time"
                 :text {
-                  player.length == "null" ? formattime(0, "%M:%S") : 
-                  formattime(player.length, "%M:%S")
+                  player.length == "null" ? formattime(0, "%M:%S") :
+                  player.lengthStr
                 }
               )
             )

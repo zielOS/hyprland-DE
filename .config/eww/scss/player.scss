@@ -32,8 +32,7 @@
         }
       }
       .progress scale trough highlight {
-        all: unset;
-        border-radius: 2rem;
+        //all: unset;
         background-image: linear-gradient(
           to right,
           darken($color: $green, $amount: 15%),
@@ -42,7 +41,7 @@
       }
 
       .progress scale trough {
-        all: unset;
+        //all: unset;
         background-color: rgba($cyan, 0.3);
         box-shadow: 0 0 2px 1px rgba(black, 0.5);
         min-height: 0.3rem;
@@ -75,18 +74,26 @@
 
         .controls {
           border-radius: 1rem;
-          .previous, .next {
+          .previous,
+          .next {
             font-size: 1.3rem;
             color: $fg-alt2;
 
-            &.canGoPrevious {color: $fg;}
-            &.canGoNext {color: $fg;}
+            &.canGoPrevious {
+              color: $fg;
+            }
+            &.canGoNext {
+              color: $fg;
+            }
           }
 
           .toggle {
             font-size: 1.6rem;
             color: $fg-alt2;
-            &.canPlay, &.canPause {color: $fg;}
+            &.canPlay,
+            &.canPause {
+              color: $fg;
+            }
           }
 
           .shuffle,
@@ -106,7 +113,7 @@
   .sidebar {
     padding: 1rem;
     .slider scale trough highlight {
-      all: unset;
+      //all: unset;
       background-image: linear-gradient(
         to right,
         darken($color: $green, $amount: 15%),
@@ -116,7 +123,7 @@
     }
 
     .slider scale trough {
-      all: unset;
+      //all: unset;
       background-color: rgba($cyan, 0.2);
       min-width: 0.5rem;
       border-radius: 0.6rem;
