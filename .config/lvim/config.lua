@@ -12,6 +12,8 @@ lvim.builtin.treesitter.ensure_installed = {
   "c"
 }
 
+lvim.transparent_window = true
+
 -- Additional Plugins
 table.insert(lvim.plugins, {
   "p00f/clangd_extensions.nvim",
